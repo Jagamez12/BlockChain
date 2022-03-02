@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Authentication</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="">
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+  {% for message in messages %}
+    <div class="alert alert-{{ messages.tags }} alert-dismissible fade show" role="alert" >
+        <strong>messages:</strong> {{ message }}
+        <button type="button" class="close" data-dimiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button> 
+    </div>
+  {% endfor %}  
+
+  
+  <h3>Welcome to blockchain project</h3>
+
+  {% if user.is_authenticated %}
+  <h3>Hello {{ fname }} </h3>
+  <h4>you're logged in.</h4>
+  <button type="submit"><a href="/singout">singOut</a></button>
+  {% else %}
+  <button type="submit"><a href="/singin">singIn</a></button>
+  <button type="submit"><a href="/singup">singUp</a></button>
+  {% endif %}
+
+  
+</body>
+
+</html>
